@@ -148,6 +148,12 @@ function App() {
   };
 
   const handleDelete = async (id) => {
+    const shouldDelete = window.confirm("Delete this TODO?");
+
+    if (!shouldDelete) {
+      return;
+    }
+
     const previousTodos = todos;
 
     setTodos((current) => current.filter((todo) => todo.id !== id));
